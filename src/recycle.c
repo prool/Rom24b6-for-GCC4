@@ -39,7 +39,7 @@
 #include "recycle.h"
 
 /* stuff for recyling notes */
-NOTE_DATA *note_free;
+extern NOTE_DATA *note_free; // add extern by prool
 
 NOTE_DATA *new_note()
 {
