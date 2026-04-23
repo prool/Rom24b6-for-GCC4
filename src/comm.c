@@ -348,6 +348,8 @@ int main( int argc, char **argv )
     struct timeval now_time;
     int port;
 
+    printf("ROM. Rivers of MUD. https://github.com/prool/Rom24b6-for-GCC4\r\n");
+
 #if defined(unix)
     int control;
 #endif
