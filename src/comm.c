@@ -342,6 +342,17 @@ void	read_from_buffer	args( ( DESCRIPTOR_DATA *d ) );
 void	stop_idling		args( ( CHAR_DATA *ch ) );
 void    bust_a_prompt           args( ( CHAR_DATA *ch ) );
 
+// prool begin
+// prool here: http://virtustan.net proolix@gmail.com
+int isprool(char c) // prool's modif for isprint
+{
+if ((c<32)&&(c>=0)) return 0;
+if (c==-1) return 0;
+if (c==-2) return 0;
+if (c==-3) return 0;
+return 1;
+}
+// prool end
 
 int main( int argc, char **argv )
 {
@@ -1147,7 +1158,7 @@ void read_from_buffer( DESCRIPTOR_DATA *d )
 
 	if ( d->inbuf[i] == '\b' && k > 0 )
 	    --k;
-	else if ( isascii(d->inbuf[i]) && isprint(d->inbuf[i]) )
+	else if (isprool(d->inbuf[i])) /* isascii() && isprint() */ // prool: enable non ASCII chars (f.e., cyrillic, UTF-8, etc)
 	    d->incomm[k++] = d->inbuf[i];
     }
 
